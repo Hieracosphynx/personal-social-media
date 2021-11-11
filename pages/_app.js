@@ -8,7 +8,7 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <Container disableGutters='true'>
+        <Container>
           <Component {...pageProps} />
         </Container>
       </Layout>

@@ -1,7 +1,19 @@
-import '../styles/globals.css'
+import { Container } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import Layout from '../components/Layouts/Layout';
+import theme from '../src/theme';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Container disableGutters='true'>
+          <Component {...pageProps} />
+        </Container>
+      </Layout>
+    </ThemeProvider>
+  );
+};
 
-export default MyApp
+export default MyApp;

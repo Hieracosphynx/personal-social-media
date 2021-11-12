@@ -9,7 +9,7 @@ const Navbar = () => {
       <AppBar position='static'>
         <Toolbar variant='dense'>
           <Typography variant='h6' color='inherit' component='div'>
-            Photos
+            Simple
           </Typography>
         </Toolbar>
       </AppBar>

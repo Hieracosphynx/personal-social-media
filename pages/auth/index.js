@@ -18,7 +18,8 @@ const Auth = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      authCtx.login(user);
+      const res = await authCtx.login(user);
+      console.log(res);
     } catch (err) {
       console.error(err.message);
     }

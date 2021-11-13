@@ -1,5 +1,6 @@
 import { Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
+import AuthProvider from '../context/Auth/AuthProvider';
 import Layout from '../components/Layouts/Layout';
 import theme from '../src/theme';
 import '../styles/globals.css';
@@ -7,11 +8,13 @@ import '../styles/globals.css';
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <Container>
-          <Component {...pageProps} />
-        </Container>
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Container>
+            <Component {...pageProps} />
+          </Container>
+        </Layout>
+      </AuthProvider>
     </ThemeProvider>
   );
 };

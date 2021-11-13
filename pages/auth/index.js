@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from '../../context/Auth/auth-context';
 
 const Auth = () => {
+  const authCtx = useContext(AuthContext);
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -16,17 +18,7 @@ const Auth = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      });
-
-      if (!res.ok) {
-        throw new Error('Fatal error');
-      }
+      authCtx.login(user);
     } catch (err) {
       console.error(err.message);
     }

@@ -10,9 +10,7 @@ const MyApp = ({ Component, pageProps }) => {
     <ThemeProvider theme={theme}>
       <AuthProvider>
         <Layout>
-          <Container>
-            <Component {...pageProps} />
-          </Container>
+          <Component {...pageProps} />
         </Layout>
       </AuthProvider>
     </ThemeProvider>

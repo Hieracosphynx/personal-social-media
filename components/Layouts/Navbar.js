@@ -17,20 +17,24 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          <Link href='/' passHref>
-            <Typography
-              variant='h6'
-              component='div'
+          <Typography
+            variant='h6'
+            component='div'
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            <Link
+              href='/'
               sx={{
-                flexGrow: 1,
                 ':hover': {
                   cursor: 'pointer',
                 },
               }}
             >
               Simple
-            </Typography>
-          </Link>
+            </Link>
+          </Typography>
           {isLoggedIn ? (
             <Button color='inherit' onClick={logout}>
               Logout

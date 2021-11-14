@@ -14,7 +14,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ height: '5vh', flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
           <Typography

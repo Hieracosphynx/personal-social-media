@@ -6,8 +6,9 @@ const Layout = (props) => {
     <>
       <Navbar />
       <Container
+        component='main'
         sx={{
-          marginTop: '5px',
+          height: '95vh',
         }}
       >
         {props.children}

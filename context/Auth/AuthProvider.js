@@ -12,8 +12,6 @@ const retrieveAccessToken = () => {
 };
 
 const AuthProvider = (props) => {
-  // let tokenData = retrieveAccessToken();
-  // let initialToken = null;
   const [authToken, setAuthToken] = useState(null);
 
   useEffect(() => {

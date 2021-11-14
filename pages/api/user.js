@@ -15,5 +15,9 @@ export default async function handler(req, res) {
       },
     });
     res.json(result);
+  } else if (req.method === 'GET') {
+    res.json({
+      message: 'Guess it works for now',
+    });
   }
 }

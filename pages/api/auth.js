@@ -39,7 +39,7 @@ export default async function handler(req, res) {
         { expiresIn: 36000 },
         (err, token) => {
           if (err) throw err;
-          res.json({
+          return res.json({
             status: 200,
             message: 'Authorized',
             token,
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
       );
     } catch (err) {
       console.error('Server error');
-      res.json({
+      return res.json({
         status: 500,
         message: err.message,
       });

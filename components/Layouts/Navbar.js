@@ -13,6 +13,17 @@ const Navbar = () => {
   const { logout, isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
 
+  const loggedInMenu = (
+    <>
+      <Button color='inherit' onClick={() => router.push('/')}>
+        Home
+      </Button>
+      <Button color='inherit' onClick={logout}>
+        Logout
+      </Button>
+    </>
+  );
+
   return (
     <Box sx={{ height: '5vh', flexGrow: 1 }}>
       <AppBar position='static'>
@@ -36,9 +47,7 @@ const Navbar = () => {
             </Link>
           </Typography>
           {isLoggedIn ? (
-            <Button color='inherit' onClick={logout}>
-              Logout
-            </Button>
+            loggedInMenu
           ) : (
             <Button color='inherit' onClick={() => router.push('/auth/login')}>
               Login

@@ -36,12 +36,13 @@ export default async function handler(req, res) {
       jwt.sign(
         payload,
         process.env.JWTSECRET,
-        { expiresIn: 36000 },
+        { expiresIn: 60000 },
         (err, token) => {
           if (err) throw err;
           return res.json({
             status: 200,
             message: 'Authorized',
+            expiresIn: 60000,
             token,
           });
         }

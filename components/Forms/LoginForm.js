@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AuthContext from '../../context/Auth/auth-context';
 
@@ -35,6 +35,12 @@ const LoginForm = () => {
       console.error(err.message);
     }
   };
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      router.push('/');
+    }
+  });
 
   return (
     <form onSubmit={onSubmitHandler}>

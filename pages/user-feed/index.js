@@ -15,7 +15,6 @@ const UserFeed = () => {
    */
 
   useEffect(() => {
-    console.log(!isLoggedIn);
     if (!isLoggedIn) {
       router.push('/auth/login');
     }

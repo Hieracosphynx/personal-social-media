@@ -36,7 +36,9 @@ const Auth = () => {
             minWidth: '100%',
           }}
         >
-          <Typography variant='h3'>Simple</Typography>
+          <Typography variant='h3' color='primary'>
+            Simple
+          </Typography>
           <LoginForm />
         </CardContent>
       </Card>

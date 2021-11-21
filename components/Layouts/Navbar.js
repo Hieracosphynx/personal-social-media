@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const loggedInMenu = (
     <>
-      <Button color='inherit' onClick={() => router.push('/')}>
+      <Button color='inherit' onClick={() => router.push('/user-feed')}>
         Home
       </Button>
       <Button color='inherit' onClick={logout}>

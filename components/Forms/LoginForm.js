@@ -11,11 +11,11 @@ import Input from '@mui/material/Input';
 
 const LoginForm = () => {
   const router = useRouter();
+  const authCtx = useContext(AuthContext);
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
-  const authCtx = useContext(AuthContext);
 
   const onChangeHandler = (e) => {
     setUser({
@@ -49,8 +49,10 @@ const LoginForm = () => {
           />
         </FormControl>
         <FormControl
+          color='primary'
           sx={{
             marginTop: '10px',
+            marginBottom: '10px',
           }}
         >
           <InputLabel htmlFor='password'>Password</InputLabel>
@@ -60,9 +62,11 @@ const LoginForm = () => {
             value={user.password}
             onChange={onChangeHandler}
           />
+          <FormHelperText>Do not share your password!</FormHelperText>
         </FormControl>
-        <FormHelperText>Do not share your password!</FormHelperText>
-        <Button type='submit'>Login</Button>
+        <Button type='submit' variant='contained'>
+          Login
+        </Button>
       </FormGroup>
     </form>
   );

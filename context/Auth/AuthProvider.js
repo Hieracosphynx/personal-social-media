@@ -14,7 +14,7 @@ const retrieveAccessToken = () => {
   const token = localStorage.getItem('access_token');
   const duration = localStorage.getItem('expiresIn');
   const remainingTime = calculateExpiration(duration);
-  if (remainingTime <= 60000) {
+  if (remainingTime >= 60000) {
     localStorage.removeItem('token');
     return null;
   }
@@ -28,6 +28,14 @@ const AuthProvider = (props) => {
   const [authToken, setAuthToken] = useState(null);
 
   const isLoggedIn = !!authToken;
+
+  useEffect(() => {
+    let tokenData = retrieveAccessToken();
+    if (tokenData) {
+      let initialToken = tokenData.token;
+      setAuthToken(initialToken);
+    }
+  }, []);
 
   const loginHandler = async (userCredentials) => {
     try {
@@ -74,15 +82,6 @@ const AuthProvider = (props) => {
       clearTimeout(logoutTimer);
     }
   }, []);
-
-  useEffect(() => {
-    let tokenData = retrieveAccessToken();
-    if (tokenData) {
-      let initialToken = tokenData.token;
-      setAuthToken(initialToken);
-      logoutTimer = setTimeout(logoutHandler, tokenData.expiresIn);
-    }
-  }, [logoutHandler]);
 
   const authValue = {
     login: loginHandler,

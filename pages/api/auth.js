@@ -13,8 +13,7 @@ export default async function handler(req, res) {
       });
 
       if (!user) {
-        return res.json({
-          status: 401,
+        return res.status(401).json({
           message: 'Wrong email or password',
         });
       }
